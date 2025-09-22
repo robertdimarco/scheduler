@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George's Pickup & Dropoff Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>George's Pickup & Dropoff Scheduler</h1>
+            <div id="user-info" class="user-info hidden">
+                <span id="current-user"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <div id="login-section" class="login-section">
+            <h2>Sign In</h2>
+            <form id="login-form">
+                <select id="user-select" required>
+                    <option value="">Select your name</option>
+                    <option value="parent1">Parent 1</option>
+                    <option value="parent2">Parent 2</option>
+                    <option value="helper1">Helper 1</option>
+                    <option value="helper2">Helper 2</option>
+                </select>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <div id="calendar-section" class="calendar-section hidden">
+            <div class="week-navigation">
+                <button id="prev-week">&lt; Previous Week</button>
+                <h2 id="current-week"></h2>
+                <button id="next-week">Next Week &gt;</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-header">Monday</div>
+                <div class="day-header">Tuesday</div>
+                <div class="day-header">Wednesday</div>
+                <div class="day-header">Thursday</div>
+                <div class="day-header">Friday</div>
+
+                <div class="day-column" data-day="monday">
+                    <div class="time-slot" data-time="pickup">
+                        <h3>Pickup</h3>
+                        <div class="signup-info" id="monday-pickup"></div>
+                        <button class="signup-btn" onclick="showSignupModal('monday', 'pickup')">Sign Up</button>
+                    </div>
+                    <div class="time-slot" data-time="dropoff">
+                        <h3>Dropoff</h3>
+                        <div class="signup-info" id="monday-dropoff"></div>
+                        <button class="signup-btn" onclick="showSignupModal('monday', 'dropoff')">Sign Up</button>
+                    </div>
+                </div>
+
+                <div class="day-column" data-day="tuesday">
+                    <div class="time-slot" data-time="pickup">
+                        <h3>Pickup</h3>
+                        <div class="signup-info" id="tuesday-pickup"></div>
+                        <button class="signup-btn" onclick="showSignupModal('tuesday', 'pickup')">Sign Up</button>
+                    </div>
+                    <div class="time-slot" data-time="dropoff">
+                        <h3>Dropoff</h3>
+                        <div class="signup-info" id="tuesday-dropoff"></div>
+                        <button class="signup-btn" onclick="showSignupModal('tuesday', 'dropoff')">Sign Up</button>
+                    </div>
+                </div>
+
+                <div class="day-column" data-day="wednesday">
+                    <div class="time-slot" data-time="pickup">
+                        <h3>Pickup</h3>
+                        <div class="signup-info" id="wednesday-pickup"></div>
+                        <button class="signup-btn" onclick="showSignupModal('wednesday', 'pickup')">Sign Up</button>
+                    </div>
+                    <div class="time-slot" data-time="dropoff">
+                        <h3>Dropoff</h3>
+                        <div class="signup-info" id="wednesday-dropoff"></div>
+                        <button class="signup-btn" onclick="showSignupModal('wednesday', 'dropoff')">Sign Up</button>
+                    </div>
+                </div>
+
+                <div class="day-column" data-day="thursday">
+                    <div class="time-slot" data-time="pickup">
+                        <h3>Pickup</h3>
+                        <div class="signup-info" id="thursday-pickup"></div>
+                        <button class="signup-btn" onclick="showSignupModal('thursday', 'pickup')">Sign Up</button>
+                    </div>
+                    <div class="time-slot" data-time="dropoff">
+                        <h3>Dropoff</h3>
+                        <div class="signup-info" id="thursday-dropoff"></div>
+                        <button class="signup-btn" onclick="showSignupModal('thursday', 'dropoff')">Sign Up</button>
+                    </div>
+                </div>
+
+                <div class="day-column" data-day="friday">
+                    <div class="time-slot" data-time="pickup">
+                        <h3>Pickup</h3>
+                        <div class="signup-info" id="friday-pickup"></div>
+                        <button class="signup-btn" onclick="showSignupModal('friday', 'pickup')">Sign Up</button>
+                    </div>
+                    <div class="time-slot" data-time="dropoff">
+                        <h3>Dropoff</h3>
+                        <div class="signup-info" id="friday-dropoff"></div>
+                        <button class="signup-btn" onclick="showSignupModal('friday', 'dropoff')">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignupModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-time">Time:</label>
+                    <input type="time" id="signup-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-notes">Notes (optional):</label>
+                    <textarea id="signup-notes" placeholder="Any special instructions..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Sign Up</button>
+                    <button type="button" onclick="closeSignupModal()">Cancel</button>
+                    <button type="button" id="delete-signup" class="delete-btn hidden">Remove Signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
